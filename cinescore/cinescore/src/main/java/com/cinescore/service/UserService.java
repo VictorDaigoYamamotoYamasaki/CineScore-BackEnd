@@ -17,7 +17,7 @@ public class UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
-    // CREATE
+
     public UserResponseDTO criar(UserRequestDTO dto) {
         if (userRepository.existsByEmail(dto.getEmail())) {
             throw new RuntimeException("Email já está em uso: " + dto.getEmail());
@@ -32,14 +32,12 @@ public class UserService {
         return UserResponseDTO.fromUser(userRepository.save(user));
     }
 
-    // READ — buscar por ID
     public UserResponseDTO buscarPorId(Long id) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado com id: " + id));
         return UserResponseDTO.fromUser(user);
     }
 
-    // READ — listar todos
     public List<UserResponseDTO> listarTodos() {
         return userRepository.findAll()
                 .stream()
@@ -47,7 +45,6 @@ public class UserService {
                 .toList();
     }
 
-    // UPDATE
     public UserResponseDTO atualizar(Long id, UserRequestDTO dto) {
         User user = userRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado com id: " + id));
@@ -67,7 +64,6 @@ public class UserService {
         return UserResponseDTO.fromUser(userRepository.save(user));
     }
 
-    // DELETE
     public void deletar(Long id) {
         if (!userRepository.existsById(id)) {
             throw new RuntimeException("Usuário não encontrado com id: " + id);

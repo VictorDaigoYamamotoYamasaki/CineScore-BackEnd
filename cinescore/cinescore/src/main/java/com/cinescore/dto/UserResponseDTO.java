@@ -14,7 +14,6 @@ public class UserResponseDTO {
     private String role;
     private LocalDateTime createdAt;
 
-    // Converte User → DTO (nunca expõe passwordHash)
     public static UserResponseDTO fromUser(User user) {
         UserResponseDTO dto = new UserResponseDTO();
         dto.setId(user.getId());

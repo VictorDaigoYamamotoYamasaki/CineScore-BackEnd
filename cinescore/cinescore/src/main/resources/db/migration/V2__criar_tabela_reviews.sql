@@ -1,8 +1,3 @@
--- ============================================================
--- CINESCORE - Migration V2
--- Criação da tabela: reviews
--- ============================================================
-
 CREATE TABLE reviews (
     id            BIGINT       NOT NULL AUTO_INCREMENT,
     user_id       BIGINT       NOT NULL,

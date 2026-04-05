@@ -13,11 +13,6 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
-    /*
-     * ATENÇÃO — configuração temporária para testes dos CRUDs.
-     * Todos os endpoints estão liberados sem autenticação.
-     * Será substituída pela configuração JWT depois.
-     */
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http

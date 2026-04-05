@@ -1,9 +1,3 @@
--- ============================================================
--- CINESCORE - Migration V4
--- Criação da tabela: comments
--- Comentários feitos em reviews de outros usuários
--- ============================================================
-
 CREATE TABLE comments (
     id           BIGINT   NOT NULL AUTO_INCREMENT,
     review_id    BIGINT   NOT NULL,

@@ -1,11 +1,3 @@
--- ============================================================
--- CINESCORE - Migration V6
--- Dados iniciais: usuário administrador padrão
---
--- ATENÇÃO: A senha abaixo é o hash BCrypt de "admin123"
--- Altere a senha após o primeiro acesso!
--- ============================================================
-
 INSERT INTO users (name, email, password_hash, role)
 VALUES (
     'Administrador',

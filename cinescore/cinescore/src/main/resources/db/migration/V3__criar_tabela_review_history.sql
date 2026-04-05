@@ -1,9 +1,3 @@
--- ============================================================
--- CINESCORE - Migration V3
--- Criação da tabela: review_history
--- Registra o histórico de alterações de cada review
--- ============================================================
-
 CREATE TABLE review_history (
     id         BIGINT   NOT NULL AUTO_INCREMENT,
     review_id  BIGINT   NOT NULL,

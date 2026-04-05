@@ -1,8 +1,3 @@
--- ============================================================
--- CINESCORE - Migration V1
--- Criação da tabela: users
--- ============================================================
-
 CREATE TABLE users (
     id            BIGINT       NOT NULL AUTO_INCREMENT,
     name          VARCHAR(255) NOT NULL,

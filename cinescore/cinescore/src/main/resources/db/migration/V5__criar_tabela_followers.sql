@@ -1,9 +1,3 @@
--- ============================================================
--- CINESCORE - Migration V5
--- Criação da tabela: followers
--- Relacionamento de seguidores entre usuários
--- ============================================================
-
 CREATE TABLE followers (
     id               BIGINT   NOT NULL AUTO_INCREMENT,
     follower_user_id BIGINT   NOT NULL,

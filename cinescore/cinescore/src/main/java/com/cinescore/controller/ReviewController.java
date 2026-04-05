@@ -17,25 +17,21 @@ public class ReviewController {
 
     private final ReviewService reviewService;
 
-    // GET /api/reviews/{id}
     @GetMapping("/{id}")
     public ResponseEntity<ReviewResponseDTO> buscar(@PathVariable Long id) {
         return ResponseEntity.ok(reviewService.buscarPorId(id));
     }
 
-    // GET /api/reviews/movie/{imdbId}
     @GetMapping("/movie/{imdbId}")
     public ResponseEntity<List<ReviewResponseDTO>> listarPorFilme(@PathVariable String imdbId) {
         return ResponseEntity.ok(reviewService.listarPorFilme(imdbId));
     }
 
-    // GET /api/reviews/user/{userId}
     @GetMapping("/user/{userId}")
     public ResponseEntity<List<ReviewResponseDTO>> listarPorUsuario(@PathVariable Long userId) {
         return ResponseEntity.ok(reviewService.listarPorUsuario(userId));
     }
 
-    // POST /api/reviews?userId={id}
     @PostMapping
     public ResponseEntity<ReviewResponseDTO> criar(
             @RequestParam Long userId,
@@ -43,7 +39,6 @@ public class ReviewController {
         return ResponseEntity.status(201).body(reviewService.criar(userId, dto));
     }
 
-    // PUT /api/reviews/{id}?userId={id}
     @PutMapping("/{id}")
     public ResponseEntity<ReviewResponseDTO> atualizar(
             @PathVariable Long id,
@@ -52,7 +47,6 @@ public class ReviewController {
         return ResponseEntity.ok(reviewService.atualizar(id, userId, dto));
     }
 
-    // DELETE /api/reviews/{id}?userId={id}
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletar(
             @PathVariable Long id,

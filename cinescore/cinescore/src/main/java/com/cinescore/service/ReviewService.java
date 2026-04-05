@@ -18,7 +18,6 @@ public class ReviewService {
     private final ReviewRepository reviewRepository;
     private final UserRepository userRepository;
 
-    // CREATE
     public ReviewResponseDTO criar(Long userId, ReviewRequestDTO dto) {
         User user = userRepository.findById(userId)
                 .orElseThrow(() -> new RuntimeException("Usuário não encontrado com id: " + userId));
@@ -37,14 +36,12 @@ public class ReviewService {
         return ReviewResponseDTO.fromReview(reviewRepository.save(review));
     }
 
-    // READ — buscar por ID
     public ReviewResponseDTO buscarPorId(Long id) {
         Review review = reviewRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Review não encontrada com id: " + id));
         return ReviewResponseDTO.fromReview(review);
     }
 
-    // READ — reviews de um filme
     public List<ReviewResponseDTO> listarPorFilme(String movieImdbId) {
         return reviewRepository.findByMovieImdbId(movieImdbId)
                 .stream()
@@ -52,7 +49,6 @@ public class ReviewService {
                 .toList();
     }
 
-    // READ — reviews de um usuário
     public List<ReviewResponseDTO> listarPorUsuario(Long userId) {
         return reviewRepository.findByUserId(userId)
                 .stream()
@@ -60,7 +56,6 @@ public class ReviewService {
                 .toList();
     }
 
-    // UPDATE
     public ReviewResponseDTO atualizar(Long id, Long userId, ReviewRequestDTO dto) {
         Review review = reviewRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Review não encontrada com id: " + id));
@@ -75,7 +70,6 @@ public class ReviewService {
         return ReviewResponseDTO.fromReview(reviewRepository.save(review));
     }
 
-    // DELETE
     public void deletar(Long id, Long userId) {
         Review review = reviewRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Review não encontrada com id: " + id));
